@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-    /* Pretendard 폰트 적용 */
-     @import url('https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/variable/pretendardvariable-dynamic-subset.css');
-
     /* Reset */
     *, *::before, *::after {
         box-sizing: border-box;
@@ -11,13 +8,17 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
-    html, body {
+    html, body, input, textarea, button {
         font-family: 'Pretendard Variable', sans-serif;
         font-size: 16px;
         line-height: 1.5;
-        background-color: #f8f9fa;
         color: #333333;
     }
+
+    html, body {
+        background-color: #f8f9fa;
+    }
+   
 
     p {
         margin: 0;
