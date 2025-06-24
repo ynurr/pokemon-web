@@ -10,33 +10,6 @@ export type PokemonType = {
     };
 };
 
-export type PokemonAbility = {
-    ability: {
-        name: string;
-        url: string;
-    };
-    is_hidden: boolean;
-};
-/*
-"abilities": [
-    {
-      "ability": {
-        "name": "torrent",
-        "url": "https://pokeapi.co/api/v2/ability/67/"
-      },
-      "is_hidden": false,
-      "slot": 1
-    },
-    {
-      "ability": {
-        "name": "rain-dish",
-        "url": "https://pokeapi.co/api/v2/ability/44/"
-      },
-      "is_hidden": true,
-      "slot": 3
-    }
-],
-*/
 export type FlavorText = { //flavor_text_entries
     flavor_text: string;
     language: {
@@ -57,7 +30,6 @@ export type Pokemon = {
     types: PokemonType[];
     height: number;
     weight: number;
-    abilities: PokemonAbility[];
     stats: {
         base_stat: number;
         stat: {
