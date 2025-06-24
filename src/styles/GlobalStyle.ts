@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         background-color: #f8f9fa;
     }
-   
 
     p {
         margin: 0;
