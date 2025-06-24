@@ -44,7 +44,21 @@ const fetchPokemonDetail = async (id: string) => {
         })
     )
 
-    return { pokemon, name, flavor_text, image, types };
+    const statNameMap: Record<string, string> = {
+        hp: 'HP',
+        attack: '공격',
+        defense: '방어',
+        'special-attack': '특수공격',
+        'special-defense': '특수방어',
+        speed: '스피드',
+    };
+
+    const stats = pokemon.stats.map((s) => ({
+        name: statNameMap[s.stat.name],
+        value: s.base_stat,
+    }));
+
+    return { pokemon, name, flavor_text, image, types, stats };
 }
 
 export const useDetailQuery = (id: string) => {
