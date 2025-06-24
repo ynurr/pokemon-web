@@ -98,7 +98,10 @@ const ImageBox = styled.div`
     }
 `
 
-const Id = styled.p``
+const Id = styled.p`
+    color:rgb(153, 153, 153);
+    font-size: 14px;
+`
 
 const Name = styled.p`
     font-weight: bold;
@@ -112,6 +115,7 @@ const Type = styled.span<{ $type: string }>`
     background-color: ${({ $type }) => TYPE_COLORS[$type.toLowerCase()]};
     color: #ffffff;
     font-weight: 500;
+    font-size: 15px;
 `
 
 const StyledLink = styled(Link)`
