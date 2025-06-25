@@ -20,16 +20,27 @@ const DetailPage = () => {
                 </ImageBox>
                 <Id>#{data?.pokemon.id}</Id>
                 <Name>{data?.name}</Name>
-                {data?.types.map((t) => (
-                    <Type key={t.type_en} $type={t.type_en}>
-                    {t.type_ko}
-                    </Type>
-                ))}
-                <Size>
-                    <Height>신장:{(data?.pokemon?.height! / 10).toFixed(1)}m</Height>
-                    <Weight>체중:{(data?.pokemon?.weight! / 10).toFixed(1)}kg</Weight>
-                </Size>
-                {data?.flavor_text}
+                <Info>
+                    <Item>
+                        {data?.types.map((t) => (
+                            <Type key={t.type_en} $type={t.type_en}>
+                            {t.type_ko}
+                            </Type>
+                        ))}
+                        <Title>타입</Title>
+                    </Item>
+                    <Hr/>
+                    <Item>
+                        <Content>{(data?.pokemon?.height! / 10).toFixed(1)}m</Content>
+                        <Title>신장</Title>
+                    </Item>
+                    <Hr/>
+                    <Item>
+                        <Content>{(data?.pokemon?.weight! / 10).toFixed(1)}kg</Content>
+                        <Title>체중</Title>
+                    </Item>
+                </Info>
+                <Flavor>{data?.flavor_text}</Flavor>
                 <StatWrapper>
                     {data?.stats.map((s) => {
                         const firstType = data.types[0].type_en.toLowerCase();
@@ -41,9 +52,9 @@ const DetailPage = () => {
                             <Value>{s.value}</Value>
                             <Bar>
                             <Line
-                                percent={s.value}
-                                strokeWidth={2.6}
-                                trailWidth={2.6}
+                                percent={(s.value / 255) * 100}
+                                strokeWidth={4}
+                                trailWidth={4}
                                 strokeColor={color}
                                 trailColor="#e5e7eb"
                             />
@@ -59,26 +70,17 @@ const DetailPage = () => {
 
 export default DetailPage;
 
-const Height = styled.span``
-const Weight = styled.span``
-const Size = styled.div`
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-`
-
 const Wrapper = styled.div`
     padding: 30px;
 `
-
 const Detail = styled.div`
     background-color: #ffffff;
     padding: 50px;
     border-radius: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: inline-block;
+    max-width: 480px;
 `
-
 const ImageBox = styled.div`
     margin-bottom: 0.5rem;
     display: flex;
@@ -89,38 +91,60 @@ const ImageBox = styled.div`
         height: 200px;
     }
 `
-
 const Id = styled.p`
     color:rgb(153, 153, 153);
     font-size: 14px;
 `
-
 const Name = styled.p`
     font-weight: bold;
 `
-
+const Hr = styled.div`
+    width: 1px;
+    height: 50px;
+    background-color: #dddddd;
+`
+const Info = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+`
+const Item = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    flex: 1;
+`
+const Title = styled.span`
+    font-size: 14px;
+    color: #7a7a7a;
+`
+const Content = styled.span`
+    font-weight: bold;
+`
 const Type = styled.span<{ $type: string }>`
-    margin: 10px 3px 20px;
     display: inline-block;
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 8px;
     background-color: ${({ $type }) => TYPE_COLORS[$type.toLowerCase()]};
     color: #ffffff;
     font-weight: 500;
+    font-size: 15px;
 `
-
+const Flavor = styled.p`
+    font-size: 15px;
+`
 const StatWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;
     margin-top: 20px;
 `
-
 const Stat = styled.div`
     display: flex;
     font-size: 15px;
 `
-
 const Bar = styled.div`
     flex: 1;
     width: 100%;
@@ -129,13 +153,12 @@ const Bar = styled.div`
     max-height: 10px;
     flex-shrink: 0;
 `
-
 const Label = styled.span`
     font-weight: bold;
     width: 80px;
     text-align: left;
 `
 const Value = styled.span`
-    width: 30px;
+    width: 40px;
     text-align: left;
 `
