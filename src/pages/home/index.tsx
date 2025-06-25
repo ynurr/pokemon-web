@@ -41,12 +41,10 @@ export default HomePage;
 const Wrapper = styled.div`
     padding: 100px 200px;
 `
-
 const Title = styled.h1`
     font-size: 2rem;
     margin-bottom: 1.5rem;
 `
-
 const SearchInput = styled.input`
     padding: 10px 18px;
     width: 100%;
@@ -64,14 +62,12 @@ const SearchInput = styled.input`
         color: #999;
     }
 `
-
 const CardGrid = styled.div`
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 170px);
     gap: 30px;
 `
-
 const Card = styled.div`
     width: 170px;
     padding: 1rem;
@@ -85,7 +81,6 @@ const Card = styled.div`
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 `
-
 const ImageBox = styled.div`
     width: 100%;
     margin-bottom: 0.5rem;
@@ -97,16 +92,13 @@ const ImageBox = styled.div`
         height: 120px;
     }
 `
-
 const Id = styled.p`
     color:rgb(153, 153, 153);
     font-size: 14px;
 `
-
 const Name = styled.p`
     font-weight: bold;
 `
-
 const Type = styled.span<{ $type: string }>`
     margin: 10px 3px 0;
     display: inline-block;
@@ -117,7 +109,6 @@ const Type = styled.span<{ $type: string }>`
     font-weight: 500;
     font-size: 15px;
 `
-
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: inherit;
