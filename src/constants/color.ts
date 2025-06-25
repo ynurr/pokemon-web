@@ -11,10 +11,10 @@ export const TYPE_COLORS: Record<string, string> = {
     flying: '#7c9fe6',
     psychic: '#F584A8',
     bug: '#b6e3bc',
-    rock: '#47422a',
+    rock: '#cfd1ab',
     ghost: '#cbb3e8',
     dragon: '#403285',
-    dark: '#705746',
+    dark: '#474747',
     steel: '#B7B7CE',
-    fairy: '#dfb5eb'
+    fairy: '#dfb5eb',
 };
